@@ -36,4 +36,4 @@ jobs:
         aws-region: us-east-2
     - name: Sync dist folder with s3 bucket
       working-directory: frontend/dist
-      run: aws sync . --delete s3://starknet-proof-verifier-website
+      run: aws s3 sync . --delete s3://starknet-proof-verifier-website
