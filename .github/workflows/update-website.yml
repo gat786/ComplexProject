@@ -28,6 +28,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: WriteToStarknetPVS3Role
+        aws-region: us-east-2
     - name: Sync dist folder with s3 bucket
       working-directory: frontend/dist
       run: aws sync . --delete s3://starknet-proof-verifier-website
