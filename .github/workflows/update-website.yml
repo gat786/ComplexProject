@@ -22,18 +22,25 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
+        
     - name: Install packages
       working-directory: frontend
       run: yarn install
+      
     - name: Build dist
       working-directory: frontend
       run: yarn build
+      
     - name: "Configure AWS Credentials Action For GitHub Actions"
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::228016254426:role/WriteToS3BucketFromGH
         role-session-name: UploadToBucketSession
         aws-region: us-east-2
+        
     - name: Sync dist folder with s3 bucket
       working-directory: frontend/dist
       run: aws s3 sync --delete . s3://starknet-proof-verifier-website
+      
+    - name: Invalidate Cache for Cloudfront distribution
+      run: aws cloudfront create-invalidation --distribution-id E2D3GLXJPL012L --paths '/*'
