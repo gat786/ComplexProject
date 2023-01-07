@@ -31,7 +31,7 @@ jobs:
     - name: "Configure AWS Credentials Action For GitHub Actions"
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: WriteToStarknetPVS3Role
+        role-to-assume: WriteToS3BucketFromGH
         role-session-name: UploadToBucketSession
         aws-region: us-east-2
     - name: Sync dist folder with s3 bucket
