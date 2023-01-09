@@ -13,10 +13,10 @@ permissions:
   contents: read    # This is required for actions/checkout
   
 env:
-  ROLE_NAME: ${{ secrets.ROLE_NAME }}
-  AWS_REGION: ${{ secrets.AWS_REGION }}
-  S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
-  CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
+  ROLE_NAME: '${{ secrets.ROLE_NAME }}'
+  AWS_REGION: '${{ secrets.AWS_REGION }}'
+  S3_BUCKET_NAME: '${{ secrets.S3_BUCKET_NAME }}'
+  CLOUDFRONT_DIST_ID: '${{ secrets.CLOUDFRONT_DIST_ID }}'
 
 jobs:
   build:
