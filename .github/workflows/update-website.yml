@@ -37,16 +37,16 @@ jobs:
       working-directory: frontend
       run: yarn build
       
-    - name: "Configure AWS Credentials Action For GitHub Actions"
+    - name: "Configure AWS Credentials Action"
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: ${{ env.ROLE_NAME }}
+        role-to-assume: '${{ env.ROLE_NAME }}'
         role-session-name: SessionRole
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: '${{ env.AWS_REGION }}'
         
     - name: Sync dist folder with s3 bucket
       working-directory: frontend/dist
-      run: aws s3 sync --delete . s3://${{ env.S3_BUCKET_NAME }}
+      run: aws s3 sync --delete . s3://'${{ env.S3_BUCKET_NAME }}'
       
     - name: Invalidate Cache for Cloudfront distribution
-      run: aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DIST_ID }} --paths '/*'
+      run: aws cloudfront create-invalidation --distribution-id '${{ env.CLOUDFRONT_DIST_ID }}' --paths '/*'
