@@ -21,7 +21,8 @@ function App() {
           count is {count}
         </button>
         <p>
-          Ran this after initial Run just to check whether the action is working correctly
+          Ran this after initial Run just to check whether the action is working correctly.
+          This is an update after using Github OIDC to showcase that it is deploying correctly.
         </p>
       </div>
       <p className="read-the-docs">
