@@ -44,7 +44,7 @@ jobs:
 #         aws-access-key-id: '${{ env.ACCESS_KEY_ID }}' # optional
 #         aws-secret-access-key: '${{ env.SECRET_KEY }}' # optional
         aws-region: '${{ env.AWS_REGION }}'
-        role-to-assume: 'ComplexProjectDeployer'
+        role-to-assume: 'arn:aws:iam::932207385252:role/ComplexProjectDeployer'
         role-session-name: SessionRole
         
     - name: Sync dist folder with s3 bucket
