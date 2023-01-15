@@ -17,7 +17,7 @@ env:
   SECRET_KEY: '${{ secrets.AWS_SECRET_KEY }}'
   ROLE_NAME: '${{ secrets.ROLE_NAME }}'
   AWS_REGION: '${{ secrets.AWS_REGION }}'
-  S3_BUCKET_NAME: '${{ secrets.S3_BUCKET_NAME }}'
+  S3_BUCKET_NAME: 'complex-static-website'
   CLOUDFRONT_DIST_ID: '${{ secrets.CLOUDFRONT_DIST_ID }}'
 
 jobs:
