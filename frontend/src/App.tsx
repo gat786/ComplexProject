@@ -21,7 +21,7 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Ran this after initial Run just to check whether the action is working correctly
         </p>
       </div>
       <p className="read-the-docs">
