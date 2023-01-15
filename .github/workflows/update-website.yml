@@ -13,8 +13,8 @@ permissions:
   contents: read    # This is required for actions/checkout
   
 env:
-  ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-  SECRET_KEY: '${{ secrets.AWS_SECRET_KEY }}'
+#   ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+#   SECRET_KEY: '${{ secrets.AWS_SECRET_KEY }}'
   ROLE_NAME: '${{ secrets.ROLE_NAME }}'
   AWS_REGION: '${{ secrets.AWS_REGION }}'
   S3_BUCKET_NAME: 'complex-static-website'
@@ -41,12 +41,11 @@ jobs:
     - name: "Configure AWS Credentials Action"
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: '${{ env.ACCESS_KEY_ID }}' # optional
-        aws-secret-access-key: '${{ env.SECRET_KEY }}' # optional
+#         aws-access-key-id: '${{ env.ACCESS_KEY_ID }}' # optional
+#         aws-secret-access-key: '${{ env.SECRET_KEY }}' # optional
         aws-region: '${{ env.AWS_REGION }}'
-        
-#         role-to-assume: '${{ env.ROLE_NAME }}'
-#         role-session-name: SessionRole
+        role-to-assume: 'ComplexProjectDeployer'
+        role-session-name: SessionRole
         
     - name: Sync dist folder with s3 bucket
       working-directory: frontend/dist
